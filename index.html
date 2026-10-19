@@ -1,0 +1,615 @@
+Page 1 of 21
+untitled.txt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Comic Craft</title>
+<style>
+/* =========================
+ BASIC
+========================= */
+* {
+ box-sizing: border-box;
+}
+html {
+ scroll-behavior: smooth;
+}
+body {
+ margin: 0;
+ padding: 0;
+ background: #eeeeee;
+ font-family: Arial, Helvetica, sans-serif;
+ color: #222;
+}
+/* =========================
+ HEADER
+========================= */
+.header {
+ background: white;
+untitled.txt
+Page 2 of 21
+ border-bottom: 2px solid #cccccc;
+ padding: 14px 10px;
+ text-align: center;
+ position: sticky;
+ top: 0;
+ z-index: 100;
+}
+.header h1 {
+ margin: 0;
+ font-size: 22px;
+ color: #555;
+}
+.book {
+ font-size: 21px;
+ margin-right: 6px;
+}
+/* =========================
+ MAIN CONTAINER
+========================= */
+.container {
+ width: 100%;
+ max-width: 850px;
+ margin: auto;
+ padding: 12px;
+}
+/* =========================
+ COMIC PREVIEW TITLE
+========================= */
+.preview-title {
+ text-align: center;
+ font-size: 21px;
+ font-weight: bold;
+ color: #555;
+ margin: 8px 0 15px;
+}
+Connect Gemini
+Enterprise to
+Microsoft 365,
+Jira, and more.
+Let AI agents
+handle the rest.
+Get started
+untitled.txt
+Page 3 of 21
+/* =========================
+ PANEL
+========================= */
+.panel {
+ background: white;
+ border-radius: 5px;
+ padding: 18px 14px;
+ margin-bottom: 25px;
+ box-shadow:
+ 0 2px 6px rgba(0,0,0,0.18);
+}
+.panel-title {
+ font-size: 18px;
+ font-weight: bold;
+ margin: 0 0 13px 0;
+}
+/* =========================
+ IMAGE AREA
+========================= */
+.image-box {
+ width: 100%;
+ max-width: 560px;
+ height: 380px;
+ overflow: hidden;
+ border-radius: 4px;
+ background: #dce7df;
+ position: relative;
+}
+/* =========================
+ FOREST BACKGROUND
+========================= */
+.forest {
+untitled.txt
+Page 4 of 21
+ position: absolute;
+ inset: 0;
+ background:
+ linear-gradient(
+ 90deg,
+ #a8c5a5 0%,
+ #d1dfb8 35%,
+ #78916d 70%,
+ #4d6250 100%
+ );
+}
+/* Fog */
+.fog {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ background:
+ radial-gradient(
+ ellipse at center,
+ rgba(255,255,255,.5),
+ rgba(255,255,255,0) 65%
+ );
+}
+/* =========================
+ TREES
+========================= */
+.tree {
+ position: absolute;
+ bottom: 0;
+ width: 35px;
+ height: 100%;
+ background: #273c2d;
+ border-radius: 5px;
+}
+untitled.txt
+Page 5 of 21
+.tree::before {
+ content: "";
+ position: absolute;
+ top: -10px;
+ left: -15px;
+ width: 65px;
+ height: 100px;
+ background: #48634b;
+ clip-path: polygon(
+ 50% 0,
+ 100% 100%,
+ 0 100%
+ );
+}
+.tree1 {
+ left: 25px;
+}
+.tree2 {
+ left: 110px;
+ width: 25px;
+}
+.tree3 {
+ left: 210px;
+ width: 45px;
+}
+.tree4 {
+ right: 130px;
+ width: 38px;
+}
+.tree5 {
+ right: 25px;
+ width: 48px;
+}
+/* =========================
+ GROUND
+untitled.txt
+Page 6 of 21
+========================= */
+.ground {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+ height: 30%;
+ background:
+ linear-gradient(
+ to bottom,
+ #708b4d,
+ #425d32
+ );
+ border-radius: 50% 50% 0 0;
+}
+/* =========================
+ FOX
+========================= */
+.fox {
+ position: absolute;
+ left: 50%;
+ bottom: 38px;
+ transform: translateX(-50%);
+ width: 150px;
+ height: 210px;
+}
+/* Body */
+.fox-body {
+ position: absolute;
+ width: 95px;
+ height: 125px;
+untitled.txt
+Page 7 of 21
+ left: 35px;
+ bottom: 25px;
+ background:
+ linear-gradient(
+ 145deg,
+ #ff8c27,
+ #c74719 70%
+ );
+ border-radius:
+ 50% 45% 35% 40%;
+}
+/* Head */
+.fox-head {
+ position: absolute;
+ width: 100px;
+ height: 90px;
+ left: 25px;
+ top: 5px;
+ background:
+ linear-gradient(
+ 145deg,
+ #ff9b2f,
+ #d64d1c
+ );
+ border-radius: 50%;
+}
+/* Ears */
+.ear-left,
+.ear-right {
+ position: absolute;
+untitled.txt
+Page 8 of 21
+ top: -30px;
+ width: 42px;
+ height: 55px;
+ background: #e86620;
+ clip-path:
+ polygon(
+ 50% 0,
+ 100% 100%,
+ 0 100%
+ );
+}
+.ear-left {
+ left: 5px;
+}
+.ear-right {
+ right: 5px;
+}
+/* Inner ears */
+.ear-left::after,
+.ear-right::after {
+ content: "";
+ position: absolute;
+ left: 11px;
+ top: 12px;
+ width: 20px;
+ height: 30px;
+ background: #f6c0a0;
+ clip-path:
+untitled.txt
+Page 9 of 21
+ polygon(
+ 50% 0,
+ 100% 100%,
+ 0 100%
+ );
+}
+/* Face */
+.face-white {
+ position: absolute;
+ width: 70px;
+ height: 48px;
+ left: 15px;
+ bottom: 5px;
+ background: #f4eee4;
+ border-radius:
+ 50% 50% 45% 45%;
+}
+/* Eyes */
+.eye {
+ position: absolute;
+ top: 32px;
+ width: 10px;
+ height: 10px;
+ background: #111;
+ border-radius: 50%;
+}
+untitled.txt
+Page 10 of 21
+.eye-left {
+ left: 25px;
+}
+.eye-right {
+ right: 25px;
+}
+/* Nose */
+.nose {
+ position: absolute;
+ bottom: 10px;
+ left: 44px;
+ width: 13px;
+ height: 10px;
+ background: #171717;
+ border-radius: 50%;
+}
+/* Tail */
+.tail {
+ position: absolute;
+ width: 120px;
+ height: 65px;
+ right: -65px;
+ bottom: 55px;
+ background:
+ linear-gradient(
+ 90deg,
+ #d95c20,
+untitled.txt
+Page 11 of 21
+ #8e3a25
+ );
+ border-radius:
+ 50% 60% 60% 50%;
+ transform: rotate(-20deg);
+ z-index: -1;
+}
+/* Tail white tip */
+.tail::after {
+ content: "";
+ position: absolute;
+ right: -5px;
+ top: 4px;
+ width: 38px;
+ height: 55px;
+ background: #eee6d9;
+ border-radius: 50%;
+}
+/* Legs */
+.leg {
+ position: absolute;
+ bottom: 0;
+ width: 17px;
+ height: 75px;
+untitled.txt
+Page 12 of 21
+ background: #40251d;
+ border-radius: 0 0 10px 10px;
+}
+.leg1 {
+ left: 45px;
+}
+.leg2 {
+ left: 85px;
+}
+.leg3 {
+ left: 65px;
+}
+/* =========================
+ CAPTION
+========================= */
+.caption {
+ margin-top: 9px;
+ font-size: 13px;
+ line-height: 1.4;
+ color: #666;
+ font-style: italic;
+}
+/* =========================
+ STORY TEXT
+========================= */
+.story {
+ margin-top: 8px;
+untitled.txt
+Page 13 of 21
+ font-size: 13px;
+ line-height: 1.45;
+ color: #444;
+}
+.story b {
+ color: #222;
+}
+/* =========================
+ DIVIDER
+========================= */
+.divider {
+ height: 3px;
+ background: #222;
+ margin: 0 0 25px 0;
+}
+/* =========================
+ BUTTON
+========================= */
+.button-area {
+ text-align: center;
+ margin: 20px 0;
+}
+button {
+ border: none;
+ background: #333;
+untitled.txt
+Page 14 of 21
+ color: white;
+ padding: 12px 22px;
+ border-radius: 5px;
+ font-size: 15px;
+ cursor: pointer;
+}
+button:hover {
+ background: #555;
+}
+/* =========================
+ MOBILE
+========================= */
+@media(max-width:600px) {
+ .container {
+ padding: 8px;
+ }
+ .preview-title {
+ font-size: 18px;
+ }
+ .panel {
+ padding: 14px 10px;
+ }
+ .panel-title {
+ font-size: 16px;
+ }
+ .image-box {
+ height: 360px;
+ }
+untitled.txt
+Page 15 of 21
+ .caption,
+ .story {
+ font-size: 11px;
+ }
+ .fox {
+ transform:
+ translateX(-50%)
+ scale(.85);
+ transform-origin: bottom center;
+ }
+}
+</style>
+</head>
+<body>
+<!-- =========================
+ HEADER
+========================= -->
+<div class="header">
+ <h1>
+ <span class="book">📖</span>
+ Comic Craft
+ </h1>
+</div>
+<!-- =========================
+ MAIN
+========================= -->
+<div class="container">
+untitled.txt
+Page 16 of 21
+ <div class="preview-title">
+ 📖 Your Comic Preview
+ </div>
+ <!-- =====================
+ PANEL 1
+ ====================== -->
+ <div class="panel">
+ <div class="panel-title">
+ Panel 1: The Forest's Edge
+ </div>
+ <div class="image-box">
+ <div class="forest"></div>
+ <div class="fog"></div>
+ <div class="tree tree1"></div>
+ <div class="tree tree2"></div>
+ <div class="tree tree3"></div>
+ <div class="tree tree4"></div>
+ <div class="tree tree5"></div>
+ <div class="ground"></div>
+ <!-- FOX -->
+ <div class="fox">
+ <div class="tail"></div>
+ <div class="fox-body"></div>
+ <div class="leg leg1"></div>
+ <div class="leg leg2"></div>
+ <div class="leg leg3"></div>
+untitled.txt
+Page 17 of 21
+ <div class="fox-head">
+ <div class="ear-left"></div>
+ <div class="ear-right"></div>
+ <div class="eye eye-left"></div>
+ <div class="eye eye-right"></div>
+ <div class="face-white"></div>
+ <div class="nose"></div>
+ </div>
+ </div>
+ </div>
+ <div class="caption">
+ Free, a red fox with intelligent eyes, stands at the
+ edge of a dark, imposing forest. Sunlight barely
+ penetrates the dense canopy.
+ </div>
+ </div>
+ <div class="divider"></div>
+ <!-- =====================
+ PANEL 2
+ ====================== -->
+ <div class="panel">
+ <div class="panel-title">
+untitled.txt
+Page 18 of 21
+ Panel 2: Into the Deep Woods
+ </div>
+ <div class="image-box">
+ <div class="forest"></div>
+ <div class="fog"></div>
+ <div class="tree tree1"></div>
+ <div class="tree tree2"></div>
+ <div class="tree tree3"></div>
+ <div class="tree tree4"></div>
+ <div class="tree tree5"></div>
+ <div class="ground"></div>
+ <!-- SMALL FOX -->
+ <div class="fox"
+ style="
+ transform:
+ translateX(-50%)
+ scale(.55);
+ bottom:15px;
+ ">
+ <div class="tail"></div>
+ <div class="fox-body"></div>
+ <div class="leg leg1"></div>
+ <div class="leg leg2"></div>
+ <div class="leg leg3"></div>
+ <div class="fox-head">
+ <div class="ear-left"></div>
+ <div class="ear-right"></div>
+ <div class="eye eye-left"></div>
+untitled.txt
+Page 19 of 21
+ <div class="eye eye-right"></div>
+ <div class="face-white"></div>
+ <div class="nose"></div>
+ </div>
+ </div>
+ </div>
+ <div class="caption">
+ Free cautiously enters the forest, the path barely
+ visible beneath twisted branches and overgrown foliage.
+ An unnatural silence fills the air.
+ </div>
+ <div class="story">
+ <b>"CAPTION:"</b>
+ Whispers carried on the wind, tales of magic and
+mystery.
+ Tales of the Whispering Woods...
+ </div>
+ <div class="story">
+ <b>"NARRATION:"</b>
+ Free, the brave fox, steps into the heart of the
+ Silverstream and stands at the threshold. The trees
+ around him look watchful and their shadows promise
+ danger.
+ </div>
+untitled.txt
+Page 20 of 21
+ <div class="story">
+ <b>"IMAGE PROMPT:"</b>
+ Realistic painting of a red fox, Free, standing at the
+ edge of a dark, mysterious forest. Dramatic lighting,
+ sunlight barely penetrating the trees. Focus on the
+ fox's determined expression.
+ </div>
+ </div>
+ <!-- =====================
+ BUTTON
+ ====================== -->
+ <div class="button-area">
+ <button onclick="showMessage()">
+ ✨ Create Comic
+ </button>
+ </div>
+</div>
+<!-- =========================
+ JAVASCRIPT
+========================= -->
+<script>
+function showMessage() {
+ alert(
+ "🎨 Your Comic Preview is ready!"
+ );
+untitled.txt
+Page 21 of 21
+}
+</script>
+</body>
+</html>
